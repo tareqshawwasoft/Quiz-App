@@ -1,6 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:quiz_app_20190221/answer.dart';
 import 'package:quiz_app_20190221/question.dart';
+import 'package:quiz_app_20190221/quiz.dart';
+import 'package:quiz_app_20190221/result.dart';
 main()=> runApp(MyApp());
 class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -10,20 +13,34 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
- static int _count=0;
- void answerQuestion(){
+  int _count=0;
+  resetIndex(){
+   setState(() {
+     _count=0;
+   });
+ }
+  answerQuestion(){
    setState(() {
      _count+=1;
    });
-   if(_count==4)_count=0;
+
    print(_count);
 
  }
-  final question=[
-    'What\'s your favorite color',
-    'What\'s your favorite animal',
-    'What\'s your favorite city',
-    'What\'s your favorite country',
+ // Map for the list to save information of the questions.
+  final List<Map<String, Object>> question=[
+    {'questionText': 'What\'s the chemical formula for water',
+    'answers': ['H2O', 'HO', 'OH','O2H']
+    },
+    {'questionText': 'What\'s 1+1',
+      'answers': ['2', '1', '5','7']
+    },
+    {'questionText': 'What\'s your favorite city ',
+      'answers': ['Gaza', 'Rafah', 'Khan Younis','Der el balah']
+    },
+    {'questionText': 'What\'s your favorite country',
+      'answers': ['Palestine', 'Russia', 'UAE','Japan']
+    },
   ];
   @override
   Widget build(BuildContext context) {
@@ -35,23 +52,10 @@ class _MyAppState extends State<MyApp> {
           ),
         ),
         body: Container(
-          child: Column(
-            children: [
-              Question(question[_count]),
-              Answer(answerQuestion ,'yes'),
-              const SizedBox(
-                height: 10.0,
-              ),
-              Answer(answerQuestion,'no'),
-              const SizedBox(
-                height: 10.0,
-              ),
-              Answer(answerQuestion,'maybe'),
-            ],
-          ),
-
-        ),
+          child: _count<question.length?
+              Quiz(question, _count, answerQuestion):
+         Result(resetIndex)
       ),
-    );
+    ));
   }
 }

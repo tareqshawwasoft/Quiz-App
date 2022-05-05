@@ -10,13 +10,22 @@ class Answer extends StatelessWidget {
 Widget build(BuildContext context) {
 return Container(
 width: double.infinity,
-child: ElevatedButton(
-style: ButtonStyle(
-backgroundColor: MaterialStateProperty.all(Colors.lightBlue.shade900),
-    padding: MaterialStateProperty.all(const EdgeInsets.all(10)),
-textStyle: MaterialStateProperty.all(TextStyle(fontSize: 30, fontWeight: FontWeight.bold))),
-child: Text(answerText, style: TextStyle(color: Colors.white, fontSize: 25)),
-onPressed: callback,
+
+child: Column(
+  children: [
+    SizedBox(
+      height: 10,
+    ),
+    ElevatedButton(
+      style: ButtonStyle(
+
+          backgroundColor: MaterialStateProperty.all(Colors.lightBlue.shade900),
+          padding: MaterialStateProperty.all(const EdgeInsets.all(10)),
+          textStyle: MaterialStateProperty.all(TextStyle(fontSize: 30, fontWeight: FontWeight.bold))),
+      child: Text(answerText, style: TextStyle(color: Colors.white, fontSize: 25)),
+      onPressed: callback,
+    )
+  ],
 )
 );
 }

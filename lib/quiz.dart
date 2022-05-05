@@ -1,9 +1,21 @@
 import 'package:flutter/material.dart';
+import 'question.dart';
+import 'answer.dart';
 class Quiz extends StatelessWidget {
-const ({Key? key}) : super(key: key);
+  final List<Map<String,Object>>question;
+  final int count;
+  final VoidCallback answerQuestion;
+Quiz(this.question,this.count,this.answerQuestion);
 
 @override
 Widget build(BuildContext context) {
-return Container();
+return  Column(
+children: [
+Question(question[count]['questionText'].toString()),
+...(question[count]['answers'] as List<String>).map((answer){
+return Answer(answerQuestion, answer);
+}).toList(),
+],
+);
 }
 }
