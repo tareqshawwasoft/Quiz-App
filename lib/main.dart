@@ -27,8 +27,7 @@ class _MyAppState extends State<MyApp> {
    setState(() {
      _count+=1;
    });
-  print(_total_score);
-   print(_count);
+
 
  }
  // Map for the list to save information of the questions.
@@ -77,11 +76,12 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          // backgroundColor: black,
+        backgroundColor: Colors.purple.shade600,
           title:  Text(
-            'quiz app',
+            'quiz app ',
             style: TextStyle(color: white),
           ),
           actions:  [

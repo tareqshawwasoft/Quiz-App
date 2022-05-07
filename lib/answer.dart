@@ -18,17 +18,20 @@ child: Column(
     SizedBox(
       height: 10,
     ),
-    ElevatedButton(
+    Container(
+      width: double.infinity,
+      child: ElevatedButton(
 
-      style: ButtonStyle(
+        style: ButtonStyle(
 
-          backgroundColor: MaterialStateProperty.all(Colors.lightBlue.shade400),
-          padding: MaterialStateProperty.all(const EdgeInsets.all(10)),
-          textStyle: MaterialStateProperty.all(TextStyle(fontSize: 30, color: white)
-          )
+            backgroundColor: MaterialStateProperty.all(Colors.purple.shade600),
+            padding: MaterialStateProperty.all(const EdgeInsets.all(10)),
+            textStyle: MaterialStateProperty.all(TextStyle(fontSize: 30, color: white)
+            )
+        ),
+        child: Text(answerText, style: TextStyle(color: white, fontSize: 25)),
+        onPressed: callback,
       ),
-      child: Text(answerText, style: TextStyle(color: white, fontSize: 25)),
-      onPressed: callback,
     )
   ],
 )

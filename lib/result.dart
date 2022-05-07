@@ -21,19 +21,35 @@ String get resultPhrase{
 @override
 Widget build(BuildContext context) {
 return  Center(
-child: Column(
-children: [
- Text(
-" $result", style: TextStyle(fontSize: 40, color: black),
-),
-  Text(
-    " $resultPhrase", style: TextStyle(fontSize: 30, color: black),
+child: Container(
+  margin: const EdgeInsets.all(10.0),
+
+  child:   Column(
+  crossAxisAlignment: CrossAxisAlignment.center,
+    mainAxisAlignment: MainAxisAlignment.center,
+
+    children: [
+   Container(
+     margin: const EdgeInsets.symmetric(vertical: 20.0),
+     child: Text(
+  " $result", style: TextStyle(fontSize: 40, color: black),
   ),
-ElevatedButton(onPressed: reset, child:  Text('Restart'
-, style: TextStyle(fontSize: 30, color: black),
-),
-)
-],
+   ),
+    Container(
+      margin: const EdgeInsets.symmetric(vertical: 20.0),
+      child: Text(
+        " $resultPhrase", style: TextStyle(fontSize: 30, color: black),
+      ),
+    ),
+  Container(
+    margin: const EdgeInsets.symmetric(vertical: 20.0),
+    child: ElevatedButton(onPressed: reset, child:  Text('Restart'
+    , style: TextStyle(fontSize: 30, color: black),
+    ),
+    ),
+  )
+  ],
+  ),
 ),
 
 );
